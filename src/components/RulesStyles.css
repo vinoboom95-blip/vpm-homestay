@@ -1,0 +1,153 @@
+/* Rules Animations */
+
+/* Keyframes */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUpStagger {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseIcon {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Base Classes */
+.rules-left-card {
+    animation: slideInLeft 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    opacity: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    /* Shimmer Effect Background */
+    background: linear-gradient(110deg, var(--secondary) 30%, #2d2d44 50%, var(--secondary) 70%);
+    background-size: 200% 100%;
+    animation: slideInLeft 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards, shimmer 6s infinite linear;
+}
+
+.rules-right-card {
+    animation: slideInRight 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: 0.2s;
+    /* Slight delay for staggered effect */
+    opacity: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effects */
+.rules-left-card:hover,
+.rules-right-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* List Item Interactions */
+.rule-item {
+    transition: all 0.2s ease;
+    padding: 10px;
+    border-radius: 8px;
+    opacity: 0;
+    /* Start hidden for staggered animation */
+    animation: fadeInUpStagger 0.5s ease forwards;
+}
+
+.rule-item:hover {
+    background-color: rgba(132, 34, 52, 0.05);
+    /* Very light primary color tint */
+    transform: translateX(8px);
+    border-left: 3px solid var(--primary);
+}
+
+/* Icon Animation on Container Hover or Item Hover */
+.rule-item:hover svg {
+    animation: pulseIcon 0.6s ease infinite;
+    color: var(--primary);
+}
+
+/* Stagger List Items */
+.rule-item:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.rule-item:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.rule-item:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.rule-item:nth-child(4) {
+    animation-delay: 0.7s;
+}
+
+.rule-item:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.rule-item:nth-child(6) {
+    animation-delay: 0.9s;
+}
+
+.rule-item:nth-child(7) {
+    animation-delay: 1.0s;
+}
+
+.time-block {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.time-block:hover {
+    transform: scale(1.02);
+    background-color: rgba(255, 255, 255, 0.1);
+}

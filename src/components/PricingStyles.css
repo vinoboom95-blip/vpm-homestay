@@ -1,0 +1,136 @@
+/* Pricing Animations V2 */
+
+/* Keyframes */
+@keyframes slideInUp {
+    from {
+        transform: translate3d(0, 40px, 0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse-border {
+    0% {
+        box-shadow: 0 0 0 0 rgba(132, 34, 52, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(132, 34, 52, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(132, 34, 52, 0);
+    }
+}
+
+@keyframes highlight-sweep {
+    0% {
+        background-position: -150% 0;
+    }
+
+    100% {
+        background-position: 150% 0;
+    }
+}
+
+/* Main Card */
+.pricing-card {
+    animation: slideInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid var(--primary);
+    /* Permanent top border */
+}
+
+/* Spotlight Effect on Hover */
+.pricing-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent);
+    transition: none;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.pricing-card:hover::before {
+    animation: highlight-sweep 0.7s;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Featured Price / Badge */
+.price-tag-container {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(132, 34, 52, 0.05);
+    /* Light primary bg */
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.pricing-card:hover .price-tag-container {
+    transform: scale(1.05);
+    background: rgba(132, 34, 52, 0.1);
+}
+
+.price-value {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* Gradient Text */
+    transition: letter-spacing 0.3s ease;
+}
+
+.pricing-card:hover .price-value {
+    letter-spacing: 1px;
+}
+
+/* Inclusions List - Checkmark Pop */
+.inclusion-item svg {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.inclusion-item:hover svg {
+    transform: scale(1.4) rotate(15deg);
+    color: #10b981;
+    /* Green on hover confirmation */
+}
+
+/* Availability Badge Pulse */
+.availability-badge {
+    position: relative;
+    overflow: hidden;
+}
+
+.availability-badge::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    animation: highlight-sweep 3s infinite;
+}
+
+/* Booking Button Pulse */
+.pricing-btn {
+    animation: pulse-border 2s infinite;
+}

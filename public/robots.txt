@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vpmhomestay.com/sitemap.xml
