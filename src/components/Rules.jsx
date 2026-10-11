@@ -19,14 +19,14 @@ const Rules = () => {
                             <Clock size={24} color="var(--primary)" />
                             <div>
                                 <strong style={{ display: 'block' }}>Check-in</strong>
-                                <span>11:00 AM – 8:00 PM</span>
+                                <span>10:00 AM – 10:00 PM</span>
                             </div>
                         </div>
                         <div className="time-block" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                             <Clock size={24} color="var(--primary)" />
                             <div>
                                 <strong style={{ display: 'block' }}>Check-out</strong>
-                                <span>Before 10:00 AM</span>
+                                <span>Before 09:00 AM</span>
                             </div>
                         </div>
                     </div>
