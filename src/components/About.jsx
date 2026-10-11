@@ -41,7 +41,7 @@ const About = () => {
                                 </li>
                                 <li className="flex-between">
                                     <span style={{ color: 'var(--text-light)' }}>Check-out:</span>
-                                    <strong>10:00 AM</strong>
+                                    <strong>09:00 AM</strong>
                                 </li>
                                 <li className="flex-between">
                                     <span style={{ color: 'var(--text-light)' }}>Guest Capacity:</span>
